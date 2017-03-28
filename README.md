@@ -66,9 +66,6 @@ The ycmd server SHUT DOWN (restart with ':YcmRestartServer').......
 解决方案： 这是因为YCM和Python的问题  请严格参考[YouCompleteMe的GitHub主页](https://github.com/Valloric/YouCompleteMe) 进行安装即可
 
 
-
-
-
-
 ##最后
+------
 后面会持续更新 如有任何问题，欢迎随时邮件或者issue交流 Enjoy It!
