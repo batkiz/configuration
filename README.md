@@ -7,36 +7,38 @@
 ----
 ###插件列表
 
-Vundle.vim 用于插件管理，PluginInstall/PluginUpdate
+1. Vundle.vim 用于插件管理，PluginInstall/PluginUpdate
 
-Trinity.vim 用于集中管理taglist、nerdtree、srcexpl三个插件，按 F8 就可以快速打开这三个插件了。
+2. Trinity.vim 用于集中管理taglist、nerdtree、srcexpl三个插件，按 F8 就可以快速打开这三个插件了。
 
-taglist.vim 用于生成、展示函数列表
+3. taglist.vim 用于生成、展示函数列表
 
-nerdtree.vim 用于生成、展示目录和文件
+4. nerdtree.vim 用于生成、展示目录和文件
 
-srcexpl.vim 用于函数的展示，当移动到函数上的之后，就会在srcexpl的窗口里面显示函数定义的。
+5. srcexpl.vim 用于函数的展示，当移动到函数上的之后，就会在srcexpl的窗口里面显示函数定义的。
 
-a.vim 用于快速切换*.c和*.h  
+6. a.vim 用于快速切换*.c和*.h  
 ```
   这个我注释掉了 因为我不写C和C++   别问为啥 如果你要用 自己打开(删除掉前面的"注释就行)
 ```
 
-ctrlp.vim 用于文件的模糊搜索，能够加快打开文件的速度效果
+7. ctrlp.vim 用于文件的模糊搜索，能够加快打开文件的速度效果
 
-powerline.vim 一个优雅的状态栏插件 
+8. powerline.vim 一个优雅的状态栏插件 
 ```
   之前有用另外一个状态增强插件，听说这个更漂亮，就换掉了，原来的注释了，看起来两个没什么区别
 ```
 
-vimgrep 自带插件，用于搜索tags中匹配字符，效果
+9. vimgrep 自带插件，用于搜索tags中匹配字符，效果
 
-molokai 配色插件 这个可以弄得跟sublime的配色类似一样
+10. molokai 配色插件 这个可以弄得跟sublime的配色类似一样
 
 ###基本设置
+
 基本设置都在上面 包括了常用的一些基本设置  详情看注释即可
 
 ###插件设置
+
 插件设置基本都在下面 
 
 ## 怎么用
