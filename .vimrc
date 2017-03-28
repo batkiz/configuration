@@ -1,6 +1,10 @@
   " ==========================================vim 原生设置=====================================
   " 去掉vi的一致性
   set nocompatible
+  "与windows共享粘贴板"
+  set clipboard+=unnamed
+  "在编辑过程中，在右下角显示光标位置的状态行
+  set ruler
   " 隐藏滚动条
   set guioptions-=r
   set guioptions-=L
@@ -24,6 +28,8 @@
   " 距离顶部和底部5行
   set scrolloff=5
   " 命令行为两行
+  set cmdheight=1
+  " 显示状态栏
   set laststatus=2
   " 文件编码
   set fenc=utf-8
@@ -45,7 +51,8 @@
   filetype off
   " 根据侦测到的不同类型加载对应的插件
   " filetype plugin on
-
+  " 设置文件编码为UTF-8
+  set fileencodings=utf-8,chinese,latin-1
   " 定义快捷键到行首和行尾
    nmap LB 0
    nmap LE $
@@ -87,6 +94,8 @@
   " 设置tab键为4个空格
    set tabstop=4
    set shiftwidth=4
+  " 敲入tab键时实际占有的列数 并且将tab转换为空格
+   set softtabstop=4 expandtab
   " vim使用自动对齐，也就是把当前行的对齐格式应用到下一行(自动缩进）
    set autoindent
   " 设置匹配模式，类似当输入一个左括号时会匹配相应的右括号
@@ -115,24 +124,68 @@
 
   " 安装插件CtrlP 做文件跳转用
    Plugin 'kien/ctrlp.vim'
-
-  " 状态加强插件
-   Plugin 'bling/vim-airline'
-
+  " a.vim 用于切换head头文件.h和源文件.c文件之间快速切换 但是我不写C和C++
+  " Plugin 'vim-scripts/a.vim'
+  " 状态加强插件 暂时先换个别的试试
+  " Plugin 'bling/vim-airline'
+  " 更漂亮的状态加强插件
+  Plugin 'Lokaltog/vim-powerline'
+  " 显示函数列表
+  Plugin 'wesleyche/SrcExpl'
+  " taglist 显示tag 必须开启文件类型自动检测功能 filetype on
+  " http://easwy.com/blog/archives/advanced-vim-skills-taglist-plugin/
+  Plugin 'vim-scripts/taglist.vim'
+  " 整合taglist, nerdtree, srcexpl 的插件
+  Plugin 'wesleyche/Trinity'
+  " 配色插件 有点像sublimetext
+  Plugin 'tomasr/molokai'
   " 显示末尾空格的插件
    Plugin 'ShowTrailingWhitespace'
+
+  " 安装vim-go
+   Plugin 'fatih/vim-go'
+  " 安装Your Complete Me
+  Plugin 'Valloric/YouCompleteMe'
 
   "安装NodeTree 插件
    Plugin 'scrooloose/nerdtree'
 
 
-  call vundle#end()            " required
-  filetype plugin indent on    " required
+   call vundle#end()            " required
+   filetype plugin indent on    " required
 
   "============================================vim 插件设置结束======================================
+  "============================================powerline状态行设置===================================
+  let g:Powerline_symbols='unicode'
+  "============================================powerline状态行设置结束===============================
   "============================================NodeTree 插件设置======================================
   map <F2> :NERDTreeToggle<CR>
+  let g:NERDTreeDirArrows = 1
+  let g:NERDTreeDirArrowExpandable = '▸'
+  let g:NERDTreeDirArrowCollapsible = '▾'
+  let g:NERDTreeGlyphReadOnly = "RO"
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
-  " 打开vim的是时候自动打开NodeTree
+  "=====打开vim的是时候自动打开NodeTree
   autocmd vimenter * NERDTree
   "============================================NodeTree 设置结束======================================
+  "============================================YouCompleteMe 插件设置=================================
+  "let g:ycm_keep_logfiles = 1
+  "let g:ycm_log_level = 'debug'
+  "============================================YouCompleteMe 设置结束=================================
+  "============================================ 颜色和配色设置========================================
+  let g:rehash256 = 1
+  colorscheme molokai
+  "============================================ 颜色和配色结束========================================
+  "============================================ Ctrl-p设置============================================
+  let g:ctrlp_map = '<c-p>'
+  let g:ctrlp_cmd = 'CtrlP'
+  "============================================ Ctrl-p设置结束========================================
+  "============================================ 函数列表等等一系列设置================================
+  nmap <F8>   :TrinityToggleAll<CR>
+  nmap <F9>   :TrinityToggleSourceExplorer<CR>
+  nmap <F10>  :TrinityToggleTagList<CR>
+  nmap <F11>  :TrinityToggleNERDTree<CR>
+  "========================================= 函数列表等等一系列设置结束================================
+  "========================================= Catgs设置 ================================================
+  let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+  "========================================= Catgs设置结束 =============================================
