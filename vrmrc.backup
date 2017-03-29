@@ -174,7 +174,7 @@
   "============================================YouCompleteMe 插件设置=================================
   " 设置跳转到方法/函数定义的快捷键 
   nnoremap <leader>j :YcmCompleter GoToDefinitionElseDeclaration<CR> 
-  " 触发补全快捷键 
+  " " 触发补全快捷键 
   let g:ycm_key_list_select_completion = ['<TAB>', '<c-n>', '<Down>'] 
   let g:ycm_key_list_previous_completion = ['<S-TAB>', '<c-p>', '<Up>'] 
   let g:ycm_auto_trigger = 1 
