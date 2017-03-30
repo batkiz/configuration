@@ -50,7 +50,7 @@ $ mv ~/.vimrc backup
 ```
 ### 第二步：安装
 ```
-$ git clone https://github.com/Yikun/.vim.git ~/.vim
+$ git clone https://github.com/yangfan21/configuration.git ~/.vim
 $ mkdir -p ~/.vim/bundle
 $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 打开vim  在命令模式下输入 :PluginInstall 等待安装完  Done  然后退出即可 :qa
