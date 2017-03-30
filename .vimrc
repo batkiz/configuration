@@ -126,17 +126,10 @@
    Plugin 'kien/ctrlp.vim'
   " a.vim 用于切换head头文件.h和源文件.c文件之间快速切换 但是我不写C和C++
   " Plugin 'vim-scripts/a.vim'
-  " 状态加强插件 暂时先换个别的试试
-  " Plugin 'bling/vim-airline'
   " 更漂亮的状态加强插件
-  Plugin 'Lokaltog/vim-powerline'
-  " 显示函数列表
-  Plugin 'wesleyche/SrcExpl'
-  " taglist 显示tag 必须开启文件类型自动检测功能 filetype on
-  " http://easwy.com/blog/archives/advanced-vim-skills-taglist-plugin/
-  Plugin 'vim-scripts/taglist.vim'
-  " 整合taglist, nerdtree, srcexpl 的插件
-  Plugin 'wesleyche/Trinity'
+   Plugin 'Lokaltog/vim-powerline'
+  " 显示函数列表 tagbar
+   Plugin 'majutsushi/tagbar'
   " 配色插件 有点像sublimetext
   Plugin 'tomasr/molokai'
   " 显示末尾空格的插件
@@ -166,7 +159,7 @@
   let g:NERDTreeDirArrows = 1
   let g:NERDTreeDirArrowExpandable = '▸'
   let g:NERDTreeDirArrowCollapsible = '▾'
-  let g:NERDTreeGlyphReadOnly = "RO"
+  let g:NERDTreeGlyphReadOnly = 'RO'
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
   "=====打开vim的是时候自动打开NodeTree
   autocmd vimenter * NERDTree
@@ -196,12 +189,3 @@
   " 设置过滤不进行查找的后缀名 
   let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|pyc)$'
   "============================================ Ctrl-p设置结束========================================
-  "============================================ 函数列表等等一系列设置================================
-  nmap <F8>   :TrinityToggleAll<CR>
-  nmap <F9>   :TrinityToggleSourceExplorer<CR>
-  nmap <F10>  :TrinityToggleTagList<CR>
-  nmap <F11>  :TrinityToggleNERDTree<CR>
-  "========================================= 函数列表等等一系列设置结束================================
-  "========================================= Catgs设置 ================================================
-  let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-  "========================================= Catgs设置结束 =============================================
