@@ -9,29 +9,28 @@
 
 1. Vundle.vim 用于插件管理，PluginInstall/PluginUpdate
 
-2. Trinity.vim 用于集中管理taglist、nerdtree、srcexpl三个插件，按 F8 就可以快速打开这三个插件了。
+2. tagbar.vim 用于生成、展示函数列表
 
-3. taglist.vim 用于生成、展示函数列表
+3. nerdtree.vim 用于生成、展示目录和文件
 
-4. nerdtree.vim 用于生成、展示目录和文件
-
-5. srcexpl.vim 用于函数的展示，当移动到函数上的之后，就会在srcexpl的窗口里面显示函数定义的。
-
-6. a.vim 用于快速切换*.c和*.h  
+4. a.vim 用于快速切换*.c和*.h  
 ```
   这个我注释掉了 因为我不写C和C++   别问为啥 如果你要用 自己打开(删除掉前面的"注释就行)
 ```
+5. YouCompleteMe   
+```
+  自动补齐插件  我一直没用
+ ```
+6. ctrlp.vim 用于文件的模糊搜索，能够加快打开文件的速度效果
 
-7. ctrlp.vim 用于文件的模糊搜索，能够加快打开文件的速度效果
-
-8. powerline.vim 一个优雅的状态栏插件 
+7. powerline.vim 一个优雅的状态栏插件 
 ```
   之前有用另外一个状态增强插件，听说这个更漂亮，就换掉了，原来的注释了，看起来两个没什么区别
 ```
 
-9. vimgrep 自带插件，用于搜索tags中匹配字符，效果
+8. vimgrep 自带插件，用于搜索tags中匹配字符，效果
 
-10. molokai 配色插件 这个可以弄得跟sublime的配色类似一样
+9. molokai 配色插件 这个可以弄得跟sublime的配色类似一样
 
 ###基本设置
 
@@ -53,11 +52,8 @@ $ mv ~/.vimrc backup
 $ git clone https://github.com/yangfan21/configuration.git ~/.vim
 $ mkdir -p ~/.vim/bundle
 $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+$ cp ~/.vim/.vimrc ~/
 打开vim  在命令模式下输入 :PluginInstall 等待安装完  Done  然后退出即可 :qa
-```
-### 第三步:创建软链
-```
-$ ln -s ~/.vim/.vimrc ~/.vimrc
 ```
 
 ##其他问题
@@ -68,7 +64,10 @@ The ycmd server SHUT DOWN (restart with ':YcmRestartServer').......
 ```
 解决方案： 这是因为YCM和Python的问题  请严格参考[YouCompleteMe的GitHub主页](https://github.com/Valloric/YouCompleteMe) 进行安装即可
 
+2.tagbar 可能会出现 找不到ctags 的情况 
+解决方案： Mac OS 直接brew install ctags 即可
+
 
 ##最后
 ------
-后面会持续更新 如有任何问题，欢迎随时邮件或者issue交流 Enjoy It!
+后面会持续更新 如有任何问题，欢迎随时邮件或者issue交流  Enjoy It!
