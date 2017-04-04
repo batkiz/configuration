@@ -146,6 +146,8 @@
    "安装插件ag.vim
    Plugin 'rking/ag.vim'
 
+   "安装Emmet插件
+   Plugin 'mattn/emmet-vim'
 
    call vundle#end()            " required
    filetype plugin indent on    " required
