@@ -1,6 +1,12 @@
   " ==========================================vim 原生设置=====================================
   " 去掉vi的一致性
   set nocompatible
+  " 设定默认解码
+  set fenc=utf-8 
+  " history文件中需要记录的行数 
+  set history=100
+  " 在处理未保存或只读文件的时候，弹出确认 
+  set confirm
   "与windows共享粘贴板"
   set clipboard+=unnamed
   "在编辑过程中，在右下角显示光标位置的状态行
@@ -35,10 +41,14 @@
   set fenc=utf-8
   " 高亮搜索项
   set hlsearch
+  " 保存全局变量 
+  set viminfo+=!
+  " 带有如下符号的单词不要被换行分割 
+  set iskeyword+=_,$,@,%,#,-
   " 不允许扩展table
   set noexpandtab
-  " 修改按左键，光标回到上一行的最右边
-  set whichwrap+=,h,l
+  " 修改按左键，光标回到上一行的最右边 允许backspace和光标键跨越行边界 
+  set whichwrap+=<,>,h,l 
   " 文件在Vim之外修改过，自动重新读入
   set autoread
   " 突出显示当前行
@@ -47,67 +57,115 @@
   set cursorcolumn
   " 定义快捷键的前缀，即<Leader>
   let mapleader=";"
-  " 开启文件类型侦测 为了vundle必须关了 心疼
-  filetype off
+  " 开启文件类型侦测
+  filetype on
   " 根据侦测到的不同类型加载对应的插件
-  " filetype plugin on
+  filetype plugin on
+  " 为特定文件类型载入相关缩进文件
+  filetype indent on
   " 设置文件编码为UTF-8
   set fileencodings=utf-8,chinese,latin-1
   " 定义快捷键到行首和行尾
-   nmap LB 0
-   nmap LE $
+  nmap LB 0
+  nmap LE $
   " 设置快捷键将选中文本块复制至系统剪贴板
-   vnoremap <Leader>y "+y
+  vnoremap <Leader>y "+y
   " 设置快捷键将系统剪贴板内容粘贴至 vim
-   nmap <Leader>p "+p
+  nmap <Leader>p "+p
   " 定义快捷键关闭当前分割窗口
-   nmap <Leader>q :q<CR>
+  nmap <Leader>q :q<CR>
   " 定义快捷键保存当前窗口内容
-   nmap <Leader>w :w<CR>
+  nmap <Leader>w :w<CR>
   " 定义快捷键保存所有窗口内容并退出 vim
-   nmap <Leader>WQ :wa<CR>:q<CR>
+  nmap <Leader>WQ :wa<CR>:q<CR>
   " 不做任何保存，直接退出 vim
-   nmap <Leader>Q :qa!<CR>
+  nmap <Leader>Q :qa!<CR>
   " 依次遍历子窗口
-   nnoremap nw <C-W><C-W>
+  nnoremap nw <C-W><C-W>
   " 跳转至右方的窗口
-   nnoremap <Leader>lw <C-W>l
+  nnoremap <Leader>lw <C-W>l
   " 跳转至左方的窗口
-   nnoremap <Leader>hw <C-W>h
+  nnoremap <Leader>hw <C-W>h
   " 跳转至上方的子窗口
-   nnoremap <Leader>kw <C-W>k
+  nnoremap <Leader>kw <C-W>k
   " 跳转至下方的子窗口
-   nnoremap <Leader>jw <C-W>j
+  nnoremap <Leader>jw <C-W>j
   " 定义快捷键在结对符之间跳转
-   nmap <Leader>M %
+  nmap <Leader>M %
 
   " 让配置变更立即生效
-   autocmd BufWritePost $MYVIMRC source $MYVIMRC
+  autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
   " 开启实时搜索功能
-   set incsearch
+  set incsearch
   " 搜索时大小写不敏感
-   set ignorecase
+  set ignorecase
   " vim 自身命令行模式智能补全
-   set wildmenu
+  set wildmenu
 
   " 设置tab键为4个空格
-   set tabstop=4
-   set shiftwidth=4
+  set tabstop=4
+  set shiftwidth=4
   " 敲入tab键时实际占有的列数 并且将tab转换为空格
-   set softtabstop=4 expandtab
+  set softtabstop=4 expandtab
   " vim使用自动对齐，也就是把当前行的对齐格式应用到下一行(自动缩进）
-   set autoindent
+  set autoindent
   " 设置匹配模式，类似当输入一个左括号时会匹配相应的右括号
-   set showmatch
+  set showmatch
   " 显示行号
-   set number
+  set number
   " 使退格键有效
-   set backspace=2
-   set backspace=indent,eol,start
+  set backspace=2
+  set backspace=indent,eol,start
   " 解决粘贴自动缩进
-   set pastetoggle=<F2>
+  set pastetoggle=<F2>
 
+  " 高亮字符，让其不受100列限制
+  :highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white
+  :match OverLength '\%101v.*'
+
+  " 状态行颜色
+  highlight StatusLine guifg=SlateBlue guibg=Yellow
+  highlight StatusLineNC guifg=Gray guibg=White 
+
+  """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+  " 文件设置 
+  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  " 不要备份文件（根据自己需要取舍)
+  set nobackup
+  " 不要生成swap文件，当buffer被丢弃的时候隐藏它
+  setlocal noswapfile
+  set bufhidden=hide
+
+  " 字符间插入的像素行数目
+  set linespace=0
+
+  " 增强模式中的命令行自动完成操作 
+  set wildmenu
+
+  " 在状态行上显示光标所在位置的行号和列号
+  set ruler
+  set rulerformat=%20(%2*%<%f%=\ %m%r\ %3l\ %c\ %p%%%)
+
+  " 命令行（在状态行下）的高度，默认为1，这里是2
+  set cmdheight=2
+
+  " 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
+  set mouse=a 
+  set selection=exclusive 
+  set selectmode=mouse,key
+
+  " 启动的时候不显示那个援助乌干达儿童的提示 
+  set shortmess=atI 
+
+  " 通过使用: commands命令，告诉我们文件的哪一行被改变过
+  set report=0 
+
+  " 不让vim发出讨厌的滴滴声
+  set noerrorbells 
+
+  " 在被分割的窗口间显示空白，便于阅读
+  set fillchars=vert:\ ,stl:\ ,stlnc:\ 
 
   " 帮助系统设置为中文
     set helplang=cn
@@ -134,9 +192,10 @@
   Plugin 'tomasr/molokai'
   " 显示末尾空格的插件
    Plugin 'ShowTrailingWhitespace'
-
+  " 安装go-code
+   Plugin 'nsf/gocode',{'rtp': 'vim/'}
   " 安装vim-go
-   Plugin 'fatih/vim-go'
+  Plugin 'fatih/vim-go'
   " 安装Your Complete Me
   Plugin 'Valloric/YouCompleteMe'
 
