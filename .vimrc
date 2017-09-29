@@ -18,7 +18,7 @@
   " 隐藏顶部标签栏
   set showtabline=0
   " 设置字体
-  set guifont=Monaco:h14
+  set guifont=Yahei Consolas Hybrid:h12
   " 开启语法高亮
   syntax on
   " solarized主题设置在终端下的设置
@@ -183,7 +183,7 @@
   " 安装插件CtrlP 做文件跳转用
    Plugin 'kien/ctrlp.vim'
   " a.vim 用于切换head头文件.h和源文件.c文件之间快速切换 但是我不写C和C++
-  " Plugin 'vim-scripts/a.vim'
+   Plugin 'vim-scripts/a.vim'
   " 更漂亮的状态加强插件
    Plugin 'Lokaltog/vim-powerline'
   " 显示函数列表 tagbar
