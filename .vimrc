@@ -18,7 +18,7 @@
   " 隐藏顶部标签栏
   set showtabline=0
   " 设置字体
-  set guifont=Yahei Consolas Hybrid:h12
+  set guifont=Ubuntu Mono:h12
   " 开启语法高亮
   syntax on
   " solarized主题设置在终端下的设置
@@ -189,15 +189,15 @@
   " 显示函数列表 tagbar
    Plugin 'majutsushi/tagbar'
   " 配色插件 有点像sublimetext
-  Plugin 'tomasr/molokai'
+   Plugin 'tomasr/molokai'
   " 显示末尾空格的插件
    Plugin 'ShowTrailingWhitespace'
   " 安装go-code
-   Plugin 'nsf/gocode',{'rtp': 'vim/'}
+  " Plugin 'nsf/gocode',{'rtp': 'vim/'}
   " 安装vim-go
-  Plugin 'fatih/vim-go'
+  " Plugin 'fatih/vim-go'
   " 安装Your Complete Me
-  Plugin 'Valloric/YouCompleteMe'
+   Plugin 'Valloric/YouCompleteMe'
 
   "安装NodeTree 插件
    Plugin 'scrooloose/nerdtree'
