@@ -18,7 +18,7 @@
   " 隐藏顶部标签栏
   set showtabline=0
   " 设置字体
-  set guifont=Ubuntu Mono:h12
+  set guifont='Ubuntu Mono':h12
   " 开启语法高亮
   syntax on
   " solarized主题设置在终端下的设置
