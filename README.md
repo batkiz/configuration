@@ -1,3 +1,5 @@
+# *VIM configuration [DEPRECATED]*  
+
 # configuration
 ##是什么
 ----
